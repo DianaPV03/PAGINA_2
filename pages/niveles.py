@@ -12,7 +12,7 @@ file_path = os.path.join(current_dir, 'SUELOS.csv')
 data = pd.read_csv(file_path).to_dict('records')
 
 layout = html.Div([
-        html.H1("NIVELES DE CONSTRUCCIÓN"),
+        html.H2("NIVELES DE CONSTRUCCIÓN"),
         html.Div([
             html.Label('Selecione un rango de nivel de construccion', style={'margin-right': '10px'}),
             dcc.Dropdown(

@@ -11,7 +11,7 @@ file_path = os.path.join(current_dir, 'SUELOS.csv')
 data = pd.read_csv(file_path).to_dict('records')
 
 layout = html.Div([
-        html.H1("CARGAS MAXIMAS"),
+        html.H2("CARGAS MAXIMAS"),
         html.Div([
             html.Label('Selecione un rango de carga maxima', style={'margin-right': '10px'}),
             dcc.Dropdown(
