@@ -3,11 +3,10 @@ import pandas as pd
 import os
 from dash import html, dcc, callback, Input, Output, State
 
-dash.register_page(_name_,
-                   name="CARGAS MAXIMAS")
+dash.register_page(__name__, name="CARGAS MAXIMAS")
 
 # Cargar los datos al iniciar la aplicación
-current_dir = os.path.dirname(os.path.abspath(_file_))
+current_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(current_dir, 'SUELOS.csv')
 data = pd.read_csv(file_path).to_dict('records')
 
@@ -82,4 +81,3 @@ def consultar_bd(file_path, sheet_name):
     return df.to_dict('records')
 
 
-    

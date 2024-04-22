@@ -3,11 +3,11 @@ import os
 import pandas as pd
 from dash import html, dcc, callback, Input, Output, State
 
-dash.register_page(_name_,
-                   name="NIVELES DE CONSTRUCCIÓN")
+dash.register_page(__name__,
+                name="NIVELES DE CONSTRUCCIÓN")
 
 # Cargar los datos al iniciar la aplicación
-current_dir = os.path.dirname(os.path.abspath(_file_))
+current_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(current_dir, 'SUELOS.csv')
 data = pd.read_csv(file_path).to_dict('records')
 
@@ -75,7 +75,7 @@ def validar_salida(tipo):
             html.Tr([
                 html.Td(tipo[col]) for col in tipo.keys()
             ])
-        ])
-    ])
+        ])
+    ])
 
 
