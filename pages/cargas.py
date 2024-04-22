@@ -1,10 +1,15 @@
 import dash
-import xlwings as xw
+import pandas as pd
 import os
 from dash import html, dcc, callback, Input, Output, State
 
-dash.register_page(__name__,
+dash.register_page(_name_,
                    name="CARGAS MAXIMAS")
+
+# Cargar los datos al iniciar la aplicación
+current_dir = os.path.dirname(os.path.abspath(_file_))
+file_path = os.path.join(current_dir, 'SUELOS.csv')
+data = pd.read_csv(file_path).to_dict('records')
 
 layout = html.Div([
         html.H1("CARGAS MAXIMAS"),
@@ -33,13 +38,48 @@ layout = html.Div([
 )
 
 def update_output(dropdown, n_clicks):
-    current_dir = os.path.dirname(os.path.abspath(__file__))
     if n_clicks is not None and n_clicks > 0:
         if dropdown == '800':
-            file_path = os.path.join(current_dir, 'SUELOS.xlsx')
-            return consultar_bd(file_path, 'C.BAJA')
+            if data:
+                return validar_salida(data[0])
+               
+            else:
+                return "No se encontraron datos."
+        elif dropdown == '801-4000':
+            if data:
+                return validar_salida(data[1])
+               
+            else:
+                return "No se encontraron datos."
+        elif dropdown == '4001-8000':
+            if data:
+                return validar_salida(data[2])
+               
+            else:
+                return "No se encontraron datos."
+        elif dropdown == '8001':
+            if data:
+                return validar_salida(data[3])
+               
+            else:
+                return "No se encontraron datos."
 
-def consultar_bd(file_path, page):
-    ws = xw.Book(file_path).sheets[page]
-    v1 = ws.range("A1:A2").value
-    return f'You selected: {v1}'
+
+def validar_salida(tipo):
+    return html.Table([
+        html.Thead(
+            html.Tr([html.Th(col) for col in tipo.keys()])
+        ),
+        html.Tbody([
+            html.Tr([
+                html.Td(tipo[col]) for col in tipo.keys()
+            ])
+        ])
+    ])
+        
+def consultar_bd(file_path, sheet_name):
+    df = pd.read_csv(file_path)
+    return df.to_dict('records')
+
+
+    
