@@ -4,7 +4,7 @@ from dash import Dash, html, dcc
 app = Dash(__name__, use_pages=True)
 
 app.layout = html.Div([
-    html.H1("ESTUDIO DE GEOTECNICA"),
+    html.H1("ESTUDIOS GEOTECNICOS"),
     html.Div([
         html.Div(
             html.Button(dcc.Link(f"{page['name']}", href=page["relative_path"])),
