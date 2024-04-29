@@ -11,7 +11,7 @@ file_path = os.path.join(current_dir, 'SUELOS.csv')
 data = pd.read_csv(file_path).to_dict('records')
 
 layout = html.Div([
-    html.H2("CARGAS MÁXIMAS"),
+    html.H2("CARGAS MÁXIMAS", style={'text-align': 'center'}),
     html.Label('Las cargas máximas de servicio son cruciales para garantizar la seguridad y estabilidad de una estructura según la NSR-10.'),
     html.Br(),
     html.Br(),
@@ -29,7 +29,7 @@ layout = html.Div([
             style={'width': '300px'}
         )
     ], style={'display': 'inline-flex', 'margin-bottom': '30px'}),
-    html.Button('Consultar', id='mi-boton', n_clicks=0),
+    html.Button('Consultar', id='mi-boton', n_clicks=0, style={'border-radius': '60%', 'margin-bottom': '30px'}),
     html.Div(id='mi-output'),
 
     html.P("Un aspecto importante según la NSR-10 para determinar las cargas máximas de servicio en una estructura es considerar adecuadamente las condiciones climáticas y ambientales locales. Esto incluye evaluar la posible acción de vientos, sismos, y otras cargas externas que puedan afectar la estabilidad y seguridad de la edificación a lo largo de su vida útil. Además, es crucial tener en cuenta el uso previsto de la estructura y las cargas móviles o dinámicas que pueda experimentar durante su operación normal, como la carga de personas, muebles, equipos, entre otros."),

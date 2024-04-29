@@ -4,7 +4,7 @@ from dash import html
 dash.register_page(__name__, path='/')
 
 layout = html.Div([
-    html.H1('TIPO DE ESTUDIO DE SUELO SEGUN SU CATEGORIA'),
+    html.H2('TIPO DE ESTUDIO DE SUELO SEGUN SU CATEGORIA', style={'text-align': 'center'}),
     html.Div([
         html.Div([
             html.Label('La clasificación de las unidades de construcción por categorías es esencial para determinar aspectos del diseño y la seguridad de una edificación. Estas categorías, que abarcan desde Baja hasta Especial, se definen según el número total de niveles y las cargas máximas de servicio que la estructura debe soportar.'),

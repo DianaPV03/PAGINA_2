@@ -12,7 +12,7 @@ file_path = os.path.join(current_dir, 'SUELOS.csv')
 data = pd.read_csv(file_path).to_dict('records')
 
 layout = html.Div(style={'backgroundColor': '#C6C4C9'}, children=[
-    html.H2("NIVELES DE CONSTRUCCIÓN"),
+    html.H2("NIVELES DE CONSTRUCCIÓN", style={'text-align': 'center'}),
     html.Label('Conocer los niveles de construcción es esencial para realizar un estudio de suelos efectivo. Esta información permite planificar adecuadamente la profundidad de las excavaciones, identificar los estratos geológicos presentes y diseñar cimentaciones apropiadas.'),
     html.Br(),
     html.Br(),
@@ -33,7 +33,7 @@ layout = html.Div(style={'backgroundColor': '#C6C4C9'}, children=[
             style={'width': '300px'}
         )
     ], style={'display': 'inline-flex', 'margin-bottom': '30px'}),
-    html.Button('Consultar', id='mi-boton', n_clicks=0),
+    html.Button('Consultar', id='mi-boton', n_clicks=0, style={'border-radius': '60%'}),
     html.Div(id='mi-output-niveles'),
     
     # Párrafo adicional al final de la página
