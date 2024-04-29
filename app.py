@@ -3,8 +3,9 @@ from dash import Dash, html, dcc
 
 app = Dash(__name__, use_pages=True)
 
-app.layout = html.Div([
-    html.H1("ESTUDIOS GEOTECNICOS", style={'text-align': 'center', 'color': '#3498DB'}),
+# Diseño de la página
+app.layout = html.Div(style={'background-color': '#C6C4C9'}, children=[
+    html.H1("ESTUDIOS GEOTÉCNICOS", style={'text-align': 'center', 'color': '#000000', 'margin-bottom': '30px'}),
     html.Div([
         html.Div(
             html.Button(dcc.Link(f"{page['name']}", href=page["relative_path"])),
@@ -17,5 +18,4 @@ app.layout = html.Div([
 
 if __name__ == '__main__':
     app.run(debug=True)
-
     
