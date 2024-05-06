@@ -2,6 +2,8 @@ import dash
 from dash import Dash, html, dcc
 
 app = Dash(__name__, use_pages=True)
+server = app.server 
+
 
 # Diseño de la página
 app.layout = html.Div(style={'background-color': '#C6C4C9'}, children=[
