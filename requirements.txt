@@ -1,0 +1,5 @@
+dash
+pandas
+os
+gunicorn
+dash_bootstraps_components
